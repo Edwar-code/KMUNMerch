@@ -1,0 +1,349 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Cart {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId    String   @unique @db.ObjectId
+  items     Item[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Item {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id])
+  productId String  @db.ObjectId
+  quantity  Int
+  variation String?
+  cart      Cart?   @relation(fields: [cartId], references: [id], onDelete: Cascade, onUpdate: Cascade) // Make Cart optional
+  cartId    String? @db.ObjectId
+  order     Order?  @relation(fields: [orderId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  orderId   String? @db.ObjectId
+}
+
+model Category {
+  id          String               @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  slug        String               @unique
+  description String?
+  image       String?
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @default(now()) @updatedAt
+  products    Product[]
+  discounts   CategoryOnDiscount[]
+}
+
+model CategoryOnDiscount {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String   @db.ObjectId
+  discount   Discount @relation(fields: [discountId], references: [id])
+  discountId String   @db.ObjectId
+  createdAt  DateTime @default(now())
+
+  @@unique([categoryId, discountId])
+}
+
+model UserCoupon {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  user     User     @relation(fields: [userId], references: [id])
+  userId   String   @db.ObjectId
+  coupon   Coupon   @relation(fields: [couponId], references: [id])
+  couponId String   @db.ObjectId
+  usedAt   DateTime @default(now())
+
+  @@unique([userId, couponId])
+}
+
+model Coupon {
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  code       String       @unique
+  discount   Float
+  validFrom  DateTime
+  validUntil DateTime
+  maxUses    Int?
+  usedBy     UserCoupon[]
+  createdAt  DateTime     @default(now())
+}
+
+model Discount {
+  id                   String               @id @default(auto()) @map("_id") @db.ObjectId
+  name                 String
+  description          String?
+  type                 DiscountType
+  value                Float
+  validFrom            DateTime
+  validUntil           DateTime
+  applicableCategories CategoryOnDiscount[]
+  applicableProducts   ProductOnDiscount[]
+  createdAt            DateTime             @default(now())
+}
+
+model ProductOnDiscount {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  product    Product  @relation(fields: [productId], references: [id])
+  productId  String   @db.ObjectId
+  discount   Discount @relation(fields: [discountId], references: [id])
+  discountId String   @db.ObjectId
+  createdAt  DateTime @default(now())
+
+  @@unique([productId, discountId])
+}
+
+enum DiscountType {
+  percentage
+  fixed
+}
+
+model Hero {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  subtitle  String?
+  image     String
+  link      String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Location {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  type         LocationType
+  shippingCost Float        @default(0)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @default(now()) @updatedAt
+
+  // Relationships for hierarchical queries
+  countryId String?    @db.ObjectId
+  country   Location?  @relation("CountryRelation", fields: [countryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  counties  Location[] @relation("CountryRelation") // Opposite of country
+
+  countyId String?    @db.ObjectId
+  county   Location?  @relation("CountyRelation", fields: [countyId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  cities   Location[] @relation("CountyRelation") // Opposite of county
+
+  cityId    String?    @db.ObjectId
+  city      Location?  @relation("CityRelation", fields: [cityId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  subCities Location[] @relation("CityRelation") // Opposite of city
+
+  // Relations with User
+  userCountry User[] @relation("UserCountry")
+  userCounty  User[] @relation("UserCounty")
+  userCity    User[] @relation("UserCityRelation") // Add Relation Name
+
+  // Relations with Order
+  orderCountry Order[] @relation("OrderCountry")
+  orderCounty  Order[] @relation("OrderCounty")
+  orderCity    Order[] @relation("OrderCityRelation") // Add Relation Name
+}
+
+enum LocationType {
+  country
+  county
+  city
+}
+
+model Newsletter {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  email        String   @unique
+  subscribedAt DateTime @default(now())
+  isActive     Boolean  @default(true)
+}
+
+model Order {
+  id     String      @id @default(auto()) @map("_id") @db.ObjectId
+  user   User        @relation(fields: [userId], references: [id])
+  userId String      @db.ObjectId
+  items  Item[]
+  total  Float
+  status OrderStatus @default(pending)
+
+  paymentMethod PaymentMethod @default(mpesa)
+  paymentStatus PaymentStatus @default(pending)
+  transactionId String?
+
+  // Shipping location information
+  countryId String?   @db.ObjectId
+  country   Location? @relation("OrderCountry", fields: [countryId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  countyId  String?   @db.ObjectId
+  county    Location? @relation("OrderCounty", fields: [countyId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  cityId    String?   @db.ObjectId
+  city      Location? @relation("OrderCityRelation", fields: [cityId], references: [id], onDelete: SetNull, onUpdate: Cascade) // Add Relation Name
+  street    String?
+
+  payheroReference String @unique // Add Payhero Reference from PayheroClient
+
+  // Removed reverse relation for User.ordersCity since it was redundant
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+enum OrderStatus {
+  pending
+  processing
+  shipped
+  delivered
+  cancelled
+}
+
+enum PaymentStatus {
+  pending
+  completed
+  failed
+}
+
+enum PaymentMethod {
+  mpesa
+  card
+  paypal
+}
+
+model Policy {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  type      PolicyType
+  content   String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+}
+
+enum PolicyType {
+  terms
+  return
+  privacy
+  cookie
+  disclaimer
+}
+
+model Product {
+  id             String               @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  slug           String               @unique
+  description    String
+  price          Float
+  discount       Float                @default(0)
+  category       Category             @relation(fields: [categoryId], references: [id])
+  categoryId     String               @db.ObjectId
+  variations     Variation[]
+  images         String[]
+  stock          Int
+  ratings        Rating[]
+  reviews        Review[]
+  items          Item[]
+  discounts      ProductOnDiscount[]
+  wishlists      UserWishlist[]
+  recentlyViewed UserRecentlyViewed[]
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @default(now()) @updatedAt
+}
+
+model UserWishlist {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+  addedAt   DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model UserRecentlyViewed {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+  viewedAt  DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Variation {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  options   String[]
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+}
+
+model Rating {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+  value     Int
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+  rating    Int
+  comment   String?
+  imageUrl  String?
+  createdAt DateTime @default(now())
+}
+
+model SupportTicket {
+  id        String       @id @default(auto()) @map("_id") @db.ObjectId
+  user      User         @relation(fields: [userId], references: [id])
+  userId    String       @db.ObjectId
+  subject   String
+  message   String
+  status    TicketStatus @default(open)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @default(now()) @updatedAt
+}
+
+enum TicketStatus {
+  open
+  resolved
+}
+
+model User {
+  id             String               @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  email          String               @unique
+  password       String
+  number         String?
+  role           UserRole             @default(customer)
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @default(now()) @updatedAt
+  wishlist       UserWishlist[]
+  cart           Cart?
+  orders         Order[]
+  recentlyViewed UserRecentlyViewed[]
+  ratings        Rating[]
+  reviews        Review[]
+  supportTickets SupportTicket[]
+  couponsUsed    UserCoupon[]
+  countryId      String?              @db.ObjectId
+  country        Location?            @relation("UserCountry", fields: [countryId], references: [id])
+  countyId       String?              @db.ObjectId
+  county         Location?            @relation("UserCounty", fields: [countyId], references: [id])
+  cityId         String?              @db.ObjectId
+  city           Location?            @relation("UserCityRelation", fields: [cityId], references: [id]) // Relation to a single city
+  street         String?
+  //cities         Location[]          @relation("UserCityRelation") //Opposite relation from Location Model - REMOVE THIS LINE
+
+  // Remove the redundant ordersCity relation as it's duplicating functionality with the orders field
+}
+
+enum UserRole {
+  customer
+  admin
+}
