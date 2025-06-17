@@ -292,27 +292,27 @@ const Footer = () => {
             {/* Legal links - made more compact */}
             <ul className="flex flex-wrap items-center gap-4 text-sm text-gray-900 dark:text-white xl:justify-center">
               <li>
-                <Link href="https://KMUNMerch.co.ke/privacy-policy" className="font-medium hover:underline">
+                <Link href="https://kmun-merchh.vercel.app/privacy-policy" className="font-medium hover:underline">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://KMUNMerch.co.ke/terms-and-conditions" className="font-medium hover:underline">
+                <Link href="https://kmun-merchh.vercel.app/terms-and-conditions" className="font-medium hover:underline">
                   Terms of Use
                 </Link>
               </li>
               <li>
-                <Link href="https://KMUNMerch.co.ke/return-policy" className="font-medium hover:underline">
+                <Link href="https://kmun-merchh.vercel.app/return-policy" className="font-medium hover:underline">
                   Return Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://KMUNMerch.co.ke/cookie-policy" className="font-medium hover:underline">
+                <Link href="https://kmun-merchh.vercel.app/cookie-policy" className="font-medium hover:underline">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://KMUNMerch.co.ke/disclaimer" className="font-medium hover:underline">
+                <Link href="https://kmun-merchh.vercel.app/disclaimer" className="font-medium hover:underline">
                   Legal Notice
                 </Link>
               </li>
