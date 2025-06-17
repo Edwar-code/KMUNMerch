@@ -267,7 +267,7 @@ const Navbar = () => {
                                             d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                                         />
                                     </svg>
-                                    <span className="hidden sm:flex">My Tickets</span>
+                                    <span className="hidden sm:flex">My Carts</span>
                                 </button>
 
                                 <button
@@ -340,7 +340,7 @@ const Navbar = () => {
                                             value={searchTerm}
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
-                                            placeholder="Search Events..."
+                                            placeholder="Search Merch..."
                                             className={`w-full rounded-t-md ${!isSearchExpanded || (!searchTerm && !searchHistory.length) ? 'rounded-b-md' : ''} border border-gray-200 px-4 py-2 dark:border-gray-700 dark:bg-gray-800 dark:text-white pr-10 transition-all duration-200`}
                                         />
                                         {searchTerm && (
@@ -437,7 +437,7 @@ const Navbar = () => {
                                         d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                                     />
                                 </svg>
-                                <span className="hidden sm:flex">My Tickets</span>
+                                <span className="hidden sm:flex">My Carts</span>
                             </button>
 
                             {session ? (
@@ -546,7 +546,7 @@ const Navbar = () => {
                                 value={searchTerm}
                                 onChange={handleInputChange}
                                 onFocus={handleInputFocus}
-                                placeholder="Search Events..."
+                                placeholder="Search Merch..."
                                 className={`w-full rounded-t-md ${!isSearchExpanded || (!searchTerm && !searchHistory.length) ? 'rounded-b-md' : ''} border border-gray-200 px-4 py-2 dark:border-gray-700 dark:bg-gray-800 dark:text-white pr-10`}
                             />
                             {searchTerm && (
