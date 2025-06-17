@@ -58,11 +58,11 @@ const Footer = () => {
             <div className="grid min-w-0 flex-1 grid-cols-2 gap-8 md:grid-cols-3 xl:gap-12">
               {/* Shopping section */}
               <div>
-                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">Merchandise</h6>
+                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">PRODUCTS</h6>
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://kemun.co.ke/products/new-arrivals"
+                      href="https://KMUNMerch.co.ke/products/new-arrivals"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                    Upcoming Events
@@ -70,25 +70,32 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://kemun.co.ke/products/best-sellers"
+                      href="https://KMUNMerch.co.ke/products/best-sellers"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                     Best Sellers
                     </Link>
                   </li>
-              
+                  <li>
+                    <Link
+                      href="https://KMUNMerch.co.ke/products/sale"
+                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                    >
+                    Tickets on Sale
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
               {/* Orders section */}
               <div>
                 <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-                 ORDERS
+                  TICKETS
                 </h6>
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://kemun.co.ke/account/orders"
+                      href="https://KMUNMerch.co.ke/account/orders"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                     
@@ -96,7 +103,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://kemun.co.ke/account/history"
+                      href="https://KMUNMerch.co.ke/account/history"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       Purchase History
@@ -104,7 +111,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://kemun.co.ke/return-policy"
+                      href="https://KMUNMerch.co.ke/return-policy"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       Returns & Exchanges
@@ -116,13 +123,20 @@ const Footer = () => {
               {/* Support section */}
               <div>
                 <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-                More
+                  Support
                 </h6>
                 <ul className="space-y-3">
-            
                   <li>
                     <Link
-                      href="https://kemun.co.ke/faqs"
+                      href="https://KMUNMerch.co.ke/support"
+                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                    >
+                      Contact Support
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://KMUNMerch.co.ke/faqs"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       FAQs
@@ -130,7 +144,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://kemun.co.ke/shipping-info"
+                      href="https://KMUNMerch.co.ke/shipping-info"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                      
@@ -185,7 +199,7 @@ const Footer = () => {
                   <p className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
                     Get your tickets with{' '}
                     <Link href="#" className="underline hover:no-underline">
-                    KeMUNConnect App
+                    KMUNMerchConnect App
                     </Link>
                   </p>
 
@@ -238,7 +252,7 @@ const Footer = () => {
                 <div>
                   <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">Follow Us</h6>
                   <div className="flex space-x-5">
-                    <Link href="https://www.instagram.com/kmun.kemunairobi?igsh=MWI3NHQ2cnFtZDNxNA==" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                    <Link href="https://www.instagram.com/kmun.KMUNMerchairobi?igsh=MWI3NHQ2cnFtZDNxNA==" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -271,34 +285,34 @@ const Footer = () => {
                 width={'32'}
                 height={'32'}
                 src="/logob.svg"
-                alt="KeMUNConnect"
+                alt="KMUNMerchConnect"
               />
             </Link>
 
             {/* Legal links - made more compact */}
             <ul className="flex flex-wrap items-center gap-4 text-sm text-gray-900 dark:text-white xl:justify-center">
               <li>
-                <Link href="https://kemun.co.ke/privacy-policy" className="font-medium hover:underline">
+                <Link href="https://KMUNMerch.co.ke/privacy-policy" className="font-medium hover:underline">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://kemun.co.ke/terms-and-conditions" className="font-medium hover:underline">
+                <Link href="https://KMUNMerch.co.ke/terms-and-conditions" className="font-medium hover:underline">
                   Terms of Use
                 </Link>
               </li>
               <li>
-                <Link href="https://kemun.co.ke/return-policy" className="font-medium hover:underline">
+                <Link href="https://KMUNMerch.co.ke/return-policy" className="font-medium hover:underline">
                   Return Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://kemun.co.ke/cookie-policy" className="font-medium hover:underline">
+                <Link href="https://KMUNMerch.co.ke/cookie-policy" className="font-medium hover:underline">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="https://kemun.co.ke/disclaimer" className="font-medium hover:underline">
+                <Link href="https://KMUNMerch.co.ke/disclaimer" className="font-medium hover:underline">
                   Legal Notice
                 </Link>
               </li>
@@ -308,7 +322,7 @@ const Footer = () => {
             <p className="text-sm text-gray-500 dark:text-gray-400">
               © {new Date().getFullYear()}{' '}
               <Link href="/" className="hover:underline">
-              KeMUNConnect
+              KMUNMerchConnect
               </Link>
               , Inc. All rights reserved.
             </p>
