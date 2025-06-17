@@ -154,7 +154,7 @@ export default async function Home() {
                     {/* Events Section */}
                     <section>
                         <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl mb-4">
-                            Events
+                            Merchandise
                         </h2>
                         <Filters
                             categories={categories}
