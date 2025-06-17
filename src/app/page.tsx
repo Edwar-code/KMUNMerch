@@ -1,11 +1,8 @@
 import { cache } from 'react';
 import Navbar from '@/components/customer/Navbar';
 import Footer from '@/components/customer/Footer';
-import Link from "next/link";
 import Hero from '@/components/customer/Hero';
 
-import { FaUserPlus, FaFileAlt, FaChartLine } from "react-icons/fa";
-import { CategoryList } from '@/components/customer/CategoryList';
 import { ProductList } from '@/components/customer/ProductList';
 import { Filters } from '@/components/customer/Filters';
 import { UserDetailsDialog } from '@/components/customer/UserDetailsDialog';
@@ -153,11 +150,8 @@ export default async function Home() {
             <Hero />
             <main className="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-                    {/* Navigation Buttons */}
-                    <Navigation />
                     
-                    {/* Categories and Events Section */}
-                    <CategoryList categories={categories} />
+                    {/* Events Section */}
                     <section>
                         <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl mb-4">
                             Events
@@ -184,38 +178,3 @@ export default async function Home() {
         </>
     );
 }
-
-
-function Navigation() {
-  const navItems = [
-    {
-      href: "/new-member",
-      label: "New Member",
-      icon: <FaUserPlus className="mr-2 text-lg" />,
-    },
-    {
-      href: "/meeting-reports",
-      label: "Meeting Reports",
-      icon: <FaFileAlt className="mr-2 text-lg" />,
-    },
-    {
-      href: "/financial-reports",
-      label: "Finance Reports",
-      icon: <FaChartLine className="mr-2 text-lg" />,
-    },
-  ];
-
-  return (
-    <div className="mb-10 grid grid-cols-1 sm:grid-cols-3 gap-6 px-4">
-      {navItems.map(({ href, label, icon }) => (
-        <Link key={href} href={href} passHref>
-          <a className="group flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-6 py-5 text-white font-semibold shadow-xl backdrop-blur-md hover:bg-white/20 transition-all hover:scale-[1.03]">
-            {icon}
-            <span className="text-base sm:text-lg">{label}</span>
-          </a>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
