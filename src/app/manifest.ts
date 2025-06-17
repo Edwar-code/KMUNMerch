@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next'
  
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'KeMUN-Connect',
+    name: 'KMUNMerch',
     short_name: 'KeMUN',
-    description: 'KeMUN-diplomatic experiences, networking, growth, recreation, formal engagements.',
+    description: 'KMUNMerch Stylish Entrance',
     start_url: '/',
     display: 'standalone',
     background_color: '#111827',
