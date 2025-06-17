@@ -58,7 +58,7 @@ const Footer = () => {
             <div className="grid min-w-0 flex-1 grid-cols-2 gap-8 md:grid-cols-3 xl:gap-12">
               {/* Shopping section */}
               <div>
-                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">EVENTS</h6>
+                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">Merchandise</h6>
                 <ul className="space-y-3">
                   <li>
                     <Link
@@ -76,21 +76,14 @@ const Footer = () => {
                     Best Sellers
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="https://kemun.co.ke/products/sale"
-                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                    >
-                    Tickets on Sale
-                    </Link>
-                  </li>
+              
                 </ul>
               </div>
 
               {/* Orders section */}
               <div>
                 <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-                  TICKETS
+                 ORDERS
                 </h6>
                 <ul className="space-y-3">
                   <li>
@@ -123,17 +116,10 @@ const Footer = () => {
               {/* Support section */}
               <div>
                 <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-                  Support
+                More
                 </h6>
                 <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="https://kemun.co.ke/support"
-                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                    >
-                      Contact Support
-                    </Link>
-                  </li>
+            
                   <li>
                     <Link
                       href="https://kemun.co.ke/faqs"
