@@ -62,7 +62,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/products/new-arrivals"
+                      href="https://KMUNMechco.ke/products/new-arrivals"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                    Upcoming Events
@@ -70,7 +70,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/products/best-sellers"
+                      href="https://KMUNMechco.ke/products/best-sellers"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                     Best Sellers
@@ -78,7 +78,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/products/sale"
+                      href="https://KMUNMechco.ke/products/sale"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                     Tickets on Sale
@@ -95,7 +95,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/account/orders"
+                      href="https://KMUNMechco.ke/account/orders"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                     
@@ -103,7 +103,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/account/history"
+                      href="https://KMUNMechco.ke/account/history"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       Purchase History
@@ -111,7 +111,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/return-policy"
+                      href="https://KMUNMechco.ke/return-policy"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       Returns & Exchanges
@@ -128,7 +128,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/support"
+                      href="https://KMUNMechco.ke/support"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       Contact Support
@@ -136,7 +136,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/faqs"
+                      href="https://KMUNMechco.ke/faqs"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                       FAQs
@@ -144,7 +144,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://KMUNMerch.co.ke/shipping-info"
+                      href="https://KMUNMechco.ke/shipping-info"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
                      
@@ -199,7 +199,7 @@ const Footer = () => {
                   <p className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
                     Get your tickets with{' '}
                     <Link href="#" className="underline hover:no-underline">
-                    KMUNMerchConnect App
+                    KMUNMerch App
                     </Link>
                   </p>
 
@@ -285,7 +285,7 @@ const Footer = () => {
                 width={'32'}
                 height={'32'}
                 src="/logob.svg"
-                alt="KMUNMerchConnect"
+                alt="KMUNMech"
               />
             </Link>
 
@@ -322,7 +322,7 @@ const Footer = () => {
             <p className="text-sm text-gray-500 dark:text-gray-400">
               © {new Date().getFullYear()}{' '}
               <Link href="/" className="hover:underline">
-              KMUNMerchConnect
+              KMUNMech
               </Link>
               , Inc. All rights reserved.
             </p>
