@@ -284,7 +284,7 @@ const Footer = () => {
                 className="h-8 w-auto"
                 width={'32'}
                 height={'32'}
-                src="/logob.svg"
+                src="/logo.svg"
                 alt="KMUNMech"
               />
             </Link>
