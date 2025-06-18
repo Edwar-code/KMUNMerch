@@ -1,3 +1,4 @@
+
 'use client';
 import { signOut, useSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
@@ -225,7 +226,7 @@ const Navbar = () => {
                                             className="hidden w-auto h-8 dark:block"
                                             width={'32'}
                                             height={'32'}
-                                            src="/logob.svg"
+                                            src="/logo.svg"
                                             alt=""
                                         />
                                     </Link>
@@ -317,7 +318,7 @@ const Navbar = () => {
                                         className="hidden w-auto h-8 dark:block"
                                         width={'32'}
                                         height={'32'}
-                                        src="/logob.svg"
+                                        src="/logo.svg"
                                         alt=""
                                     />
                                 </Link>
