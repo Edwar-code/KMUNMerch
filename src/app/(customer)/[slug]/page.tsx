@@ -55,17 +55,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
         if (!product) {
             return {
-                title: 'Product Not Found | KeMUN Connect',
+                title: 'Product Not Found | KMUNMerch',
             };
         }
 
         const productTitle = product.name
-            ? `${product.name} | KeMUN Connect`
-            : 'Product Details | KeMUN Connect';
+            ? `${product.name} | KMUNMerch`
+            : 'Product Details | KMUNMerch';
 
         const productDescription = product.description
             ? `${product.description.substring(0, 150)}...`
-            : 'Explore unique items and content from KeMUN Connect. Discover this product and more!';
+            : 'Explore unique items and content from KMUNMerch. Discover this product and more!';
 
         return {
             title: productTitle,
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 title: productTitle,
                 description: productDescription,
                 images: product.images?.length ? [product.images[0]] : [],
-                siteName: 'KeMUN Connect',
+                siteName: 'KMUNMerch',
             },
             twitter: {
                 card: 'summary_large_image',
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     } catch (error) {
         console.error("Error generating metadata:", error);
         return {
-            title: 'Error | KeMUN Connect',
+            title: 'Error | KMUNMerch',
             description: 'An error occurred while generating metadata.',
         };
     }
