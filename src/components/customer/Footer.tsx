@@ -1,4 +1,4 @@
- 'use client'
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
@@ -65,7 +65,7 @@ const Footer = () => {
                       href="https://KMUNMechco.ke/products/new-arrivals"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
-                   Upcoming Events
+                      Upcoming Events
                     </Link>
                   </li>
                   <li>
@@ -73,7 +73,7 @@ const Footer = () => {
                       href="https://KMUNMechco.ke/products/best-sellers"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
-                    Best Sellers
+                      Best Sellers
                     </Link>
                   </li>
                   <li>
@@ -81,7 +81,7 @@ const Footer = () => {
                       href="https://KMUNMechco.ke/products/sale"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                     >
-                    Tickets on Sale
+                      Tickets on Sale
                     </Link>
                   </li>
                 </ul>
@@ -89,17 +89,13 @@ const Footer = () => {
 
               {/* Orders section */}
               <div>
-                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-                  TICKETS
-                </h6>
+                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">TICKETS</h6>
                 <ul className="space-y-3">
                   <li>
                     <Link
                       href="https://KMUNMechco.ke/account/orders"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                    >
-                    
-                    </Link>
+                    ></Link>
                   </li>
                   <li>
                     <Link
@@ -122,9 +118,7 @@ const Footer = () => {
 
               {/* Support section */}
               <div>
-                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-                  Support
-                </h6>
+                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">Support</h6>
                 <ul className="space-y-3">
                   <li>
                     <Link
@@ -146,9 +140,7 @@ const Footer = () => {
                     <Link
                       href="https://KMUNMechco.ke/shipping-info"
                       className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                    >
-                     
-                    </Link>
+                    ></Link>
                   </li>
                 </ul>
               </div>
@@ -157,41 +149,37 @@ const Footer = () => {
             {/* Newsletter and App section */}
             <div className="mt-8 w-full lg:mt-0 lg:max-w-lg">
               <div className="space-y-5 rounded-lg bg-gray-50 p-6 dark:bg-gray-700">
-
-          {/* Newsletter subscription form */}
-<form onSubmit={handleSubmit}>
-  <div className="items-end space-y-4 sm:flex sm:space-y-0">
-    <div className="relative mr-3 w-full sm:w-96 lg:w-full">
-      <label
-        htmlFor="email"
-        className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"
-      >
-        Get the latest deals and more.
-      </label>
-      <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        disabled={isSubmitting}
-        placeholder="Enter your email address"
-        className="block w-full rounded-lg border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 sm:w-96 lg:w-full"
-      />
-    </div>
-    <div>
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className={`w-full cursor-pointer rounded-lg bg-primary-700 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ${
-          isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-        }`}
-      >
-        {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-      </button>
-    </div>
-  </div>
-</form>
+                {/* Newsletter subscription form */}
+                <form onSubmit={handleSubmit}>
+                  <div className="items-end space-y-4 sm:flex sm:space-y-0">
+                    <div className="relative mr-3 w-full sm:w-96 lg:w-full">
+                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300">
+                        Get the latest deals and more.
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        disabled={isSubmitting}
+                        placeholder="Enter your email address"
+                        className="block w-full rounded-lg border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 sm:w-96 lg:w-full"
+                      />
+                    </div>
+                    <div>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={`w-full cursor-pointer rounded-lg bg-primary-700 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ${
+                          isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
+                      >
+                        {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                      </button>
+                    </div>
+                  </div>
+                </form>
                 <hr className="border-gray-200 dark:border-gray-600" />
 
                 {/* Mobile app section */}
@@ -199,7 +187,7 @@ const Footer = () => {
                   <p className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
                     Get your tickets with{' '}
                     <Link href="#" className="underline hover:no-underline">
-                    KMUNMerch App
+                      KMUNMerch App
                     </Link>
                   </p>
 
@@ -209,9 +197,21 @@ const Footer = () => {
                       href="https:///android"
                       className="inline-flex w-full items-center justify-center rounded-lg bg-gray-800 px-4 py-2.5 text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-gray-800 sm:w-auto"
                     >
-                      <svg className="mr-3 h-7 w-7" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google-play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="currentColor" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"></path>
-                  </svg>
+                      <svg
+                        className="mr-3 h-7 w-7"
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fab"
+                        data-icon="google-play"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"
+                        ></path>
+                      </svg>
                       <div className="text-left">
                         <div className="mb-1 text-xs">Get it on</div>
                         <div className="-mt-1 font-sans text-sm font-semibold">Google Play</div>
@@ -252,7 +252,12 @@ const Footer = () => {
                 <div>
                   <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">Follow Us</h6>
                   <div className="flex space-x-5">
-                    <Link href="https://www.instagram.com/kmun.KMUNMerchairobi?igsh=MWI3NHQ2cnFtZDNxNA==" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                    <Link
+                      href="https://www.instagram.com/kmun.KMUNMerchairobi?igsh=MWI3NHQ2cnFtZDNxNA=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                    >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -261,9 +266,23 @@ const Footer = () => {
                         />
                       </svg>
                     </Link>
-                    
-                    <Link href="https://tiktok.com/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="h-5 w-5 icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok">
+
+                    <Link
+                      href="https://tiktok.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5 icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok"
+                      >
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
                       </svg>
@@ -280,13 +299,7 @@ const Footer = () => {
           <div className="gap-4 space-y-5 xl:flex xl:items-center xl:justify-between xl:space-y-0">
             {/* Logo */}
             <Link href="/" className="block">
-              <Image
-                className="h-8 w-auto"
-                width={'32'}
-                height={'32'}
-                src="/logo.svg"
-                alt="KMUNMech"
-              />
+              <Image className="h-8 w-auto" width={'32'} height={'32'} src="/logo.svg" alt="KMUNMech" />
             </Link>
 
             {/* Legal links - made more compact */}
@@ -318,14 +331,30 @@ const Footer = () => {
               </li>
             </ul>
 
-            {/* Copyright */}
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              © {new Date().getFullYear()}{' '}
-              <Link href="/" className="hover:underline">
-              KMUNMech
-              </Link>
-              , Inc. All rights reserved.
-            </p>
+            {/* START: MODIFIED SECTION */}
+            {/* Copyright & Developer Credit */}
+            <div className="text-sm text-gray-500 dark:text-gray-400 xl:text-right">
+              <p className="mb-1">
+                © {new Date().getFullYear()}{' '}
+                <Link href="/" className="hover:underline">
+                  KMUNMech
+                </Link>
+                , Inc. All rights reserved.
+              </p>
+              <p>
+                Developed by{' '}
+                <a
+                  href="https://edward-kibe.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-gray-900 underline hover:no-underline dark:text-white"
+                >
+                  Edward Kibe
+                </a>
+              </p>
+            </div>
+            {/* END: MODIFIED SECTION */}
+
           </div>
         </div>
       </div>
