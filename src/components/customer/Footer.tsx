@@ -349,7 +349,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="font-medium text-gray-900 underline hover:no-underline dark:text-white"
                 >
-                  Edward Kibe
+                 Him
                 </a>
               </p>
             </div>
